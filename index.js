@@ -3,7 +3,9 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const multer = require('multer')
+const cors = require('cors')
 require('./config/db.js')
+app.use(cors())
 
 // 上传文件
 
@@ -35,6 +37,7 @@ app.post("/uploads", upload.single('file'), (req, res, next) => {
   console.log()
   res.end("上传成功")
 })
+// 防止跨域
 
 
 

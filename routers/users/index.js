@@ -6,7 +6,12 @@ let user = require('../../model/users')
 const { response } = require('express')
 
 router.get('/', async (req, res, next) => {
-  res.end("用户列表数据")
+  await user.find({}, (err, result) => {
+    if (err) {
+      res.send(err)
+    }
+    res.send(result)
+  })
 })
 // 登录用户
 router.post('/login', async (req, res, next) => {
