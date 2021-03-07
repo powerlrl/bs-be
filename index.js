@@ -6,6 +6,7 @@ const multer = require('multer')
 const cors = require('cors')
 require('./config/db.js')
 app.use(cors())
+app.use(express.json())
 
 // 上传文件
 

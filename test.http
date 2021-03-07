@@ -1,0 +1,22 @@
+@url = http://localhost:8888
+@json = Content-Type: application/json
+
+###
+get {{url}}/users/
+
+###
+post {{url}}/users/create
+{{json}}
+ 
+
+{
+  "username": "yo",
+  "sex": "女",
+  "phone": "1735547393",
+  "type": "管理员",
+  "password": "8888",
+}
+
+###
+get {{url}}/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNDRlYzdjMmI4YTIyMmI4ODQ4N2M5OSIsImlhdCI6MTYxNTEzMTE4N30.Gcz5xpr3I7yCO04MiNAiHng6tY-Wtbe-XUDMEfMzrR0
