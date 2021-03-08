@@ -21,14 +21,18 @@ router.post('/login', async (req, res) => {
     username: req.body.username
   })
   if (!isUser) {
-    return res.status(422).send({
-      message: "用户名不存在"
+    return res.send({
+      msg: "用户名不正确",
+      type: 1,
+      success: false,
     })
   }
   const isPwd = bcrypt.compareSync(password, isUser.password)
   if (!isPwd) {
-    return res.status(422).send({
-      message: "密码不正确"
+    return res.send({
+      msg: "密码不正确",
+      type: 2,
+      success: false,
     })
   }
 
@@ -38,6 +42,8 @@ router.post('/login', async (req, res) => {
     id: String(isUser._id)
   }, SECRET)
   res.send({
+    msg: '登录成功',
+    success: true,
     isUser,
     token
   })
@@ -66,6 +72,7 @@ const auth = async (req, res, next) => {
   next()
 }
 router.get("/profile", auth, async(req, res) => {
+  // res.send(2222)
   res.send(req.userInfo)
 })
 // 更新用户

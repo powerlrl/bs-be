@@ -19,4 +19,4 @@ post {{url}}/users/create
 
 ###
 get {{url}}/users/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNDRlYzdjMmI4YTIyMmI4ODQ4N2M5OSIsImlhdCI6MTYxNTEzMTE4N30.Gcz5xpr3I7yCO04MiNAiHng6tY-Wtbe-XUDMEfMzrR0
+Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNDRlYzdjMmI4YTIyMmI4ODQ4N2M5OSIsImlhdCI6MTYxNTIyMDUxN30.W89Y5ViVtEk2MI7O94bnjzDC_8UJDiKZpeEhnZxx5dw
