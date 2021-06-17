@@ -20,3 +20,11 @@ post {{url}}/users/create
 ###
 get {{url}}/users/profile
 Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNDRlYzdjMmI4YTIyMmI4ODQ4N2M5OSIsImlhdCI6MTYxNTIyMDUxN30.W89Y5ViVtEk2MI7O94bnjzDC_8UJDiKZpeEhnZxx5dw
+
+###
+post {{url}}/categorys/add
+{
+  "name": "消毒水",
+  "code": "02",
+  "description": "ddd"
+}

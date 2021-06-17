@@ -24,7 +24,8 @@ const upload = multer({
 app.use(upload.any())  //使用该条语句req.file 为undefined，查看信息的话要使用req.files为一个数组
 
 
-app.use(express.static("./static"))
+// app.use(express.static("./uploads'"))
+app.use('/uploads', express.static(__dirname + '/uploads'))
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
@@ -33,10 +34,32 @@ app.use(bodyParser.json())
 const userRouter = require('./routers/users/index.js')
 app.use("/users", userRouter)
 
+// 导入物资分类列表路由
+const categoryRouter = require('./routers/category')
+app.use("/category", categoryRouter)
+
+// 导入采购物资列表路由
+const purseRouter = require('./routers/purse')
+app.use("/purse", purseRouter)
+
+// 导入申领表
+const applyRouter = require('./routers/apply')
+app.use("/apply", applyRouter)
+
+// 导入入库表
+const inputRouter = require('./routers/input')
+app.use("/input", inputRouter)
+
+// 导入报销表
+const accountRouter = require('./routers/account')
+app.use("/account", accountRouter)
+
 // 上传文件
-app.post("/uploads", upload.single('file'), (req, res, next) => {
-  console.log()
-  res.end("上传成功")
+app.post("/uploads", upload.single('file'), async(req, res, next) => {
+  const url = `http://localhost:8888/uploads/${req.files[0].filename}`
+  // console.log(url)
+  next()
+  res.end(url)
 })
 // 防止跨域
 

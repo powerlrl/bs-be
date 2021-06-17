@@ -11,5 +11,4 @@ let db = mongoose.connect('mongodb://localhost:27017/bsdb',{
   () => { console.log("连接成功") },
   err => {console.log("连接失败")}
 )
-
   module.exports = db

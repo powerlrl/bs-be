@@ -13,8 +13,12 @@ let userSchema = new mongoose.Schema({
   password: {
     type: String,
     set(val) {
-      return require('bcryptjs').hashSync(val)
-    }
+      return require('bcryptjs' ).hashSync(val, 10)
+    },
+    select: false,
+  },
+  imgUrl: {
+    type: String,
   }
 })
 let user = mongoose.model('User', userSchema)
